@@ -86,6 +86,7 @@ function galleryTemplate(image) {
         src="${image.webformatURL}"
         alt="${image.tags}"
     />
+    </a>
     </div>
     <div class="img-body">
     <h3 class="subtitle">'${image.likes}'<h3 class="subtitle">
