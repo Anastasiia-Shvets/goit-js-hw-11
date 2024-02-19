@@ -8,6 +8,7 @@ import{i as c}from"./assets/vendor-ad859c2f.js";(function(){const s=document.cre
         src="${t.webformatURL}"
         alt="${t.tags}"
     />
+    </a>
     </div>
     <div class="img-body">
     <h3 class="subtitle">'${t.likes}'<h3 class="subtitle">
