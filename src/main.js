@@ -1,7 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-// import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 import { searchGallery } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
@@ -45,8 +45,6 @@ refs.formElem.addEventListener('submit', ev => {
         });
     ev.target.reset();
 });
-
-
 
 
 

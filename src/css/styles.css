@@ -110,7 +110,7 @@ img {
   
 }
 
-.gallery {}
+.gallery-conteiner {}
 
 .gallery-cards {
   display: flex;
@@ -120,7 +120,7 @@ img {
     background: #FFF;
 }
 
-.img-card {
+.gallery {
   width: 360px;
 }
 

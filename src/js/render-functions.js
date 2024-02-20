@@ -4,12 +4,13 @@ export function renderGallery(data) {
     const markupGallery = data.map((image) => {
         console.log(data);
         return `<li class="gallery-item">
-    <div class="img-card">
+    <div class="gallery">
     <a class="gallery-link" href="${image.largeImageURL}">
     <img
         class="gallery-image"
         src="${image.webformatURL}"
         alt="${image.tags}"
+        title=""
         width=360
     />
     </a>
@@ -24,4 +25,8 @@ export function renderGallery(data) {
     }).join('');
 
     refs.imagesElem.innerHTML = markupGallery;
-}
+
+
+    // const gallery = new SimpleLightbox('#gallery a');
+    // gallery.refresh();
+} 
