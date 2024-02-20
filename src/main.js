@@ -2,6 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 
+
 import { searchGallery } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
 import { refs } from './js/refs';
@@ -44,7 +45,6 @@ refs.formElem.addEventListener('submit', ev => {
         });
     ev.target.reset();
 });
-
 
 
 
