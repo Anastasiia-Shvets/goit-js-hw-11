@@ -3,7 +3,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 // import SimpleLightbox from "simplelightbox";
 // import "simplelightbox/dist/simple-lightbox.min.css";
 import { searchGallery } from './js/pixabay-api';
-import { renderGallery } from './js/render-functions';
 
 const refs = {
     formElem: document.querySelector('.form'),
@@ -51,7 +50,31 @@ refs.formElem.addEventListener('submit', ev => {
     ev.target.reset();
 });
 
-
+function galleryTemplate(image) {
+    return `<div class="img-card">
+    <li class="gallery-item">
+    <a class="gallery-link" href="${image.largeImageURL}">
+    <img
+        class="gallery-image"
+        src="${image.webformatURL}"
+        alt="${image.tags}"
+        width=360
+    />
+    </a>
+    </div>
+    <div class="img-body">
+    <h3 class="subtitle">'${image.likes}'<h3 class="subtitle">
+    <h3 class="subtitle">'${image.views}'<h3 class="subtitle">
+    <h3 class="subtitle">'${image.comments}'<h3 class="subtitle">
+    <h3 class="subtitle">'${image.downloads}'<h3 class="subtitle">
+    </div>
+    </a>
+    </li>`;
+}
+function renderGallery(images) {
+    const markupGallery = galleryTemplate(images);
+    refs.imagesElem.innerHTML = markupGallery;
+}
 
 
 
