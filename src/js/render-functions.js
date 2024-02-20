@@ -11,7 +11,7 @@ export function renderGallery(data) {
     <img
         class="gallery-image"
         src="${image.webformatURL}"
-        alt="${image.tags}"
+        alt="${image.alt}"
         width=360
     />
     </a>

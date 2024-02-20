@@ -19,7 +19,7 @@ export function searchGallery(userVelue) {
                 id: photo.id,
                 imageUrl: photo.largeImageURL,
                 webformatURL: photo.webformatURL,
-                tags: photo.alt,
+                alt: photo.tags,
                 likes: photo.likes,
                 views: photo.views,
                 comments: photo.comments,
@@ -29,7 +29,7 @@ export function searchGallery(userVelue) {
         })
         .catch(error => {
             console.error(
-                'There has been a problem with your fetch operation:',
+                // 'There has been a problem with your fetch operation:',
                 error
             );
         });

@@ -1,11 +1,11 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-
 import { searchGallery } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
 import { refs } from './js/refs';
 
+refs.loadElem.style.display = 'none';
 
 refs.formElem.addEventListener('submit', ev => {
     ev.preventDefault();
@@ -19,11 +19,14 @@ refs.formElem.addEventListener('submit', ev => {
         });
         return;
     }
-    refs.loadElem.classList.add('loader');
 
+    refs.loadElem.style.display = 'block';
+    
     searchGallery(query)
         .then(data => {
-            refs.loadElem.classList.remove('loader');
+            
+            refs.loadElem.style.display = 'none';
+
             if (data.length === 0) {
                 iziToast.warning({
                     title: 'Sorry',
@@ -37,7 +40,9 @@ refs.formElem.addEventListener('submit', ev => {
             }
         })
         .catch(error => {
+
             refs.loadElem.style.display = 'none';
+            
             iziToast.error({
                 title: 'Error',
                 message:
