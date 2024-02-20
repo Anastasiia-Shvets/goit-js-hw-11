@@ -2,7 +2,8 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 // import SimpleLightbox from "simplelightbox";
 // import "simplelightbox/dist/simple-lightbox.min.css";
-
+import { searchGallery } from './js/pixabay-api';
+import { renderGallery } from './js/render-functions';
 
 const refs = {
     formElem: document.querySelector('.form'),
@@ -51,55 +52,10 @@ refs.formElem.addEventListener('submit', ev => {
 });
 
 
-function searchGallery(userVelue) {
-    const apiKey = '42280765-41e7252ac679e023dc9db9847';
-    const query = userVelue;
-    const BASE_URL = 'https://pixabay.com';
-    const END_POINT = '/api/';
-    const PARAMS = `?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
-    const url = BASE_URL + END_POINT + PARAMS;
-
-    return fetch(url)
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                throw new Error(res.status);
-            }
-        })
-        .catch(error => {
-            console.error(
-                'There has been a problem with your fetch operation:',
-                error
-            );
-        });
-}
 
 
-function galleryTemplate(image) {
-    return `<div class="img-card">
-    <li class="gallery-item">
-    <a class="gallery-link" href="${image.largeImageURL}">
-    <img
-        class="gallery-image"
-        src="${image.webformatURL}"
-        alt="${image.tags}"
-        width=360
-    />
-    </a>
-    </div>
-    <div class="img-body">
-    <h3 class="subtitle">'${image.likes}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.views}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.comments}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.downloads}'<h3 class="subtitle">
-    </div>
-    </a>
-    </li>`;
-}
 
-function renderGallery(images) {
-    const markupGallery = galleryTemplate(images);
-    refs.imagesElem.innerHTML = markupGallery;
-}
+
+
+
 
