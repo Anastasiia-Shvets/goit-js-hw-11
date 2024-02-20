@@ -61,8 +61,10 @@ img {
 }
 
 .form {
-  margin: 28px 188px;
+  margin: 32px 188px;
   display: flex;
+  align-items: center;
+    justify-content: center;
   gap: 8px;
 }
 
@@ -108,14 +110,12 @@ img {
   
 }
 
-.gallery {
-  width: 1128px;
-    height: 200px
-}
+.gallery {}
 
 .gallery-cards {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 156px;
     gap: 24px;
     background: #FFF;
 }
