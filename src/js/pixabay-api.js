@@ -15,12 +15,18 @@ export function searchGallery(userVelue) {
             }
         })
         .then(data => {
-        const photosArray = data.hits.map(photo => ({
-            id: photo.id,
-            imageUrl: photo.largeImageURL,
-        }));
-        return photosArray;
-    })
+            const photosArray = data.hits.map(photo => ({
+                id: photo.id,
+                imageUrl: photo.largeImageURL,
+                webformatURL: photo.webformatURL,
+                tags: photo.alt,
+                likes: photo.likes,
+                views: photo.views,
+                comments: photo.comments,
+                downloads: photo.downloads,
+            }));
+            return photosArray;
+        })
         .catch(error => {
             console.error(
                 'There has been a problem with your fetch operation:',

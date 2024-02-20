@@ -1,9 +1,10 @@
 import { refs } from "./refs";
 
-export function renderGallery(images) {
-    const markupGallery = images.map((image) => {
-        return `<div class="img-card">
-    <li class="gallery-item">
+export function renderGallery(data) {
+    const markupGallery = data.map((image) => {
+        console.log(data);
+        return `<li class="gallery-item">
+    <div class="img-card">
     <a class="gallery-link" href="${image.largeImageURL}">
     <img
         class="gallery-image"
@@ -12,16 +13,15 @@ export function renderGallery(images) {
         width=360
     />
     </a>
-    </div>
-    <div class="img-body">
-    <h3 class="subtitle">'${image.likes}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.views}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.comments}'<h3 class="subtitle">
-    <h3 class="subtitle">'${image.downloads}'<h3 class="subtitle">
+    <p class="item-text">Likes: ${image.likes}</p>
+    <p class="item-text">Views: ${image.views}</p>
+    <p class="item-text">Comments: ${image.comments}</p>
+    <p class="item-text">Downloads: ${image.downloads}</p>
     </div>
     </a>
-    </li>`;
-    }).join();
+    </li>
+    </div>`;
+    }).join('');
 
     refs.imagesElem.innerHTML = markupGallery;
 }
