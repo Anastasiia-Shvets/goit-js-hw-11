@@ -10,11 +10,16 @@
   <link rel="stylesheet" href="./css/styles.css"/>
 </head>
 <body>
+
   <form class="form">
     <input tupe="text" class="text-form" name="query" placeholder="Search images..."/>
     <button type="submit" class="button">Search</button>
   </form>
-  
+
+  <div class="conteiner gallery">
+  <ul class="gallery-cards"></ul>
+  </div>
+
   <script type="module" src="./main.js"></script>
   <script type="module" src="./js/pixabay-api.js"></script>
   <script type="module" src="./js/render-functions.js"></script>

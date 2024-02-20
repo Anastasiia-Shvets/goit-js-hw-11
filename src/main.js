@@ -6,7 +6,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const refs = {
     formElem: document.querySelector('.form'),
-    imgElem: document.querySelector('.text-form'),
+    inptElem: document.querySelector('.text-form'),
+    imagesElem: document.querySelector('.gallery'),
 };
 
 const images = [];
@@ -76,15 +77,14 @@ function searchGallery(userVelue) {
 
 
 function galleryTemplate(image) {
-    return `<div class="conteiner gallery">
-    <div class="img-card">
-    <ul class="gallery-card">
+    return `<div class="img-card">
     <li class="gallery-item">
     <a class="gallery-link" href="${image.largeImageURL}">
     <img
         class="gallery-image"
         src="${image.webformatURL}"
         alt="${image.tags}"
+        width=360
     />
     </a>
     </div>
@@ -95,13 +95,11 @@ function galleryTemplate(image) {
     <h3 class="subtitle">'${image.downloads}'<h3 class="subtitle">
     </div>
     </a>
-    </li>
-    </ul>
-    </div>`;
+    </li>`;
 }
 
 function renderGallery(images) {
-    const markup = galleryTemplate(images);
-    refs.imgElem.innerHTML = markup;
+    const markupGallery = galleryTemplate(images);
+    refs.imagesElem.innerHTML = markupGallery;
 }
 
