@@ -7,12 +7,11 @@ export function renderGallery(data) {
         .map(image => {
             return `<li class="gallery-item">
     <div class="gallery">
-    <a class="gallery-link" href="${image.largeImageURL}">
+    <a class="gallery-link" href="${image.imageUrl}">
     <img
         class="gallery-image"
         src="${image.webformatURL}"
         alt="${image.tags}"
-        title=""
         width=360
     />
     </a>
@@ -29,9 +28,11 @@ export function renderGallery(data) {
 
     refs.imagesElem.innerHTML = markupGallery;
 
-
-    let gallery = new SimpleLightbox('.gallery a', {
+    const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
     });
+    lightbox.refresh();
+
+
 }

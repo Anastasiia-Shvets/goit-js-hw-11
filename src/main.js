@@ -2,7 +2,6 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 
-
 import { searchGallery } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
 import { refs } from './js/refs';
@@ -20,8 +19,11 @@ refs.formElem.addEventListener('submit', ev => {
         });
         return;
     }
+    refs.loadElem.classList.add('loader');
+
     searchGallery(query)
         .then(data => {
+            refs.loadElem.classList.remove('loader');
             if (data.length === 0) {
                 iziToast.warning({
                     title: 'Sorry',
@@ -35,6 +37,7 @@ refs.formElem.addEventListener('submit', ev => {
             }
         })
         .catch(error => {
+            refs.loadElem.style.display = 'none';
             iziToast.error({
                 title: 'Error',
                 message:
