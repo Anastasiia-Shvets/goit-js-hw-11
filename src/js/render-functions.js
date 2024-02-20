@@ -1,4 +1,6 @@
 import { refs } from "./refs";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export function renderGallery(data) {
     const markupGallery = data.map((image) => {
@@ -27,6 +29,8 @@ export function renderGallery(data) {
     refs.imagesElem.innerHTML = markupGallery;
 
 
-    // const gallery = new SimpleLightbox('#gallery a');
-    // gallery.refresh();
+    let gallery = new SimpleLightbox('.gallery a');
+    gallery.on('show.simplelightbox', function () {
+        SimpleLightbox(gallery);
+    });
 } 
