@@ -14,6 +14,13 @@ export function searchGallery(userVelue) {
                 throw new Error(res.status);
             }
         })
+        .then(data => {
+        const photosArray = data.hits.map(photo => ({
+            id: photo.id,
+            imageUrl: photo.largeImageURL,
+        }));
+        return photosArray;
+    })
         .catch(error => {
             console.error(
                 'There has been a problem with your fetch operation:',
