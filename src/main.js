@@ -36,7 +36,6 @@ refs.formElem.addEventListener('submit', ev => {
                 });
             } else {
                 renderGallery(data);
-                console.log(data);
             }
         })
         .catch(error => {
@@ -49,7 +48,7 @@ refs.formElem.addEventListener('submit', ev => {
                     'An error occurred while fetching images. Please try again later.',
                 position: 'topRight',
             });
-            console.log(error);
+            (error);
         });
     ev.target.reset();
 });

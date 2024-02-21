@@ -29,7 +29,7 @@ export function searchGallery(userVelue) {
         })
         .catch(error => {
             console.error(
-                // 'There has been a problem with your fetch operation:',
+                'There has been a problem with your fetch operation:',
                 error
             );
         });
